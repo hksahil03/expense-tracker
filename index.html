@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme&display=swap" rel="stylesheet" />
+  <script src="html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #inputAmount:focus,
+    #inputText:focus {
+      border-bottom: 2px solid#A0D7FF;
+    }
+
+    #inputText {
+      margin-top: 15px;
+    }
+
+    #btncounter {
+      min-width: 300px;
+      margin-top: 20px;
+      font-weight: 700;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+
+    #btncounter:focus,
+    #btncounter:active {
+      outline: none;
+      border: none;
+    }
+
+    #downloadbtn {
+      margin: 15px;
+      min-width: 300px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: sans-serif;
+      border: none;
+      outline: none;
+    }
+
+    #downloadbtn:active,
+    #downloadbtn:focus {
+      margin: 20px;
+      border: none;
+      outline: none;
+    }
+
+    .dynamictable {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: 500;
+      text-align: center;
+      background-color: #e2e2e3;
+    }
+
+    .totaldiv {
+      min-width: 300px;
+      font-size: 22px;
+      font-family: sans-serif;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .dateparent {
+      display: flex;
+    }
+
+    @media only screen and (min-width: 300px) and (max-width: 767px) {
+      /*If the screen size is atleast 300px wide, but no more than 767px */
+
+      #inputAmount,
+      #inputText {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid silver;
+        width: 300px;
+        padding-left: 7px;
+        font-size: 18px;
+        font-family: Roboto;
+        color: #696969;
+        opacity: 0.5;
+      }
+
+      #heading {
+        font-size: 23px;
+        font-weight: bold;
+        color: #ffba66;
+        font-family: Roboto;
+      }
+
+      #date {
+        color: silver;
+        font-size: 25px;
+        font-weight: 700;
+        font-family: Roboto;
+      }
+
+      #date>img {
+        object-fit: contain;
+        height: 30px;
+        margin-right: 7px;
+        opacity: 0.4;
+      }
+
+      .mainimg {
+        object-fit: contain;
+        height: 277px;
+      }
+
+      #left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+        margin-top: 30px !important;
+      }
+
+      #right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        background-color: white;
+        margin-top: 30px !important;
+      }
+    }
+
+    @media only screen and (min-width: 1024px) {
+      /* If the screen size is over 1024px wide. */
+
+      #inputAmount,
+      #inputText {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid silver;
+        width: 300px;
+        padding-left: 7px;
+        font-size: 20px;
+        font-family: Roboto;
+        color: #696969;
+        opacity: 0.5;
+      }
+
+      #heading {
+        font-size: 35px;
+        font-weight: bold;
+        color: #ffba66;
+        font-family: Roboto;
+      }
+
+      #date {
+        color: silver;
+        font-size: 30px;
+        font-weight: 700;
+        font-family: Roboto;
+      }
+
+      #date>img {
+        object-fit: contain;
+        height: 32px;
+        margin-right: 7px;
+        opacity: 0.4;
+      }
+
+      .mainimg {
+        object-fit: contain;
+        height: 500px;
+      }
+
+      #left {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      #right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: white;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
+
+    #footer {
+      font-size: 16px;
+      color: #c0c0c0;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="wrapper" class="row">
+      <div id="left" class="col-md-6 col-sm-12 col-xs-12">
+        <img src="wallet.png" class="mainimg" />
+      </div>
+      <div id="right" class="col-md-6 col-sm-12 col-xs-12">
+        <p id="heading">
+          < Personal Expense Tracker />
+        </p>
+        <p id="date"></p>
+        <p id="totalSpent"></p>
+        <input type="text" id="inputAmount" placeholder="Enter amount" required />
+        <input type="text" id="inputText" placeholder="Enter item" required />
+        <button type="button" id="btncounter" class="btn btn-success">
+          Add +
+        </button>
+        <div id="result"></div>
+        <button id="downloadbtn" type="button" class="btn btn-warning">
+          Take Screenshot<i class="fa fa-bolt" style="margin-left: 10px; font-size: 16px"></i>
+        </button>
+        <p id="footer">
+          Made with
+          <i class="fa fa-heart" style="color: red; opacity: 0.4"></i> by
+          Sahil
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //screenshort logic
+
+    $("#downloadbtn").click(function () {
+      //htm2canvas library
+
+      html2canvas($("#right"), {
+        onrendered: function (canvas) {
+          //first of all we need to create an anchor element
+
+          var a = document.createElement("a");
+          a.href = canvas.toDataURL("image/jpeg");
+          a.download = "imagename.jpeg";
+          a.click();
+        },
+      });
+    });
+
+    let total = 0;
+    let expenseArray = [];
+    let dateelement = document.querySelector("#date");
+    let totalresultElement = document.querySelector("#totalSpent");
+    let Amountelement = document.querySelector("#inputAmount");
+    let Textelement = document.querySelector("#inputText");
+    let Btnelement = document.querySelector("#btncounter");
+    let resultelement = document.querySelector("#result");
+    // Test
+
+    dateelement.innerHTML = `<div class="dateparent"><p id="date"><img src="clock1.png">Today is ${new Date().toLocaleDateString()}</p></div>`;
+
+    function counterIncrement() {
+      let typednumber = Amountelement.value; //This is number but in String
+      let convertedTypedNumber = parseInt(typednumber, 10); //This is string number converted into Number
+      let typedtext = Textelement.value;
+
+      let expenseObject = {};
+      expenseObject.value = typednumber;
+      expenseObject.text = typedtext;
+
+      expenseArray.push(expenseObject);
+
+      total = total + convertedTypedNumber;
+      console.log(total);
+      //Dispaying the Outputs:
+
+      //Displaying total
+      totalresultElement.innerHTML = `<div class=" totaldiv alert alert-success" role="alert">Total spendings is &#8377; ${total}</div>`;
+
+      //Displaying items
+      let finalHTML = expenseArray
+        .map((expense) => {
+          return `<div><table class="table dynamictable ">
+                    <tr>
+                      <td>
+                        You spent &#8377; ${expense.value} on ${expense.text}
+                      </td>
+                    </tr>
+                  </table>`;
+
+          // test
+
+          // test
+        })
+        .join(""); //Array of strings to String
+
+      resultelement.innerHTML = finalHTML;
+      Amountelement.value = "";
+      Textelement.value = "";
+    }
+
+    Btnelement.addEventListener("click", counterIncrement, false);
+  </script>
+</body>
+
+</html>
